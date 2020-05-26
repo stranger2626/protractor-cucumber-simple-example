@@ -15,3 +15,13 @@ Scenario: Page title bash
   Then Page title should be "Цитатник Рунета"
   When I wait "3" seconds
 
+@so
+Scenario Outline: Page titles <URL>
+  Given I open "<URL>" url
+  Then Page title should be "<Title>"
+  When I wait "3" seconds
+
+  Examples:
+  | URL                   | Title                                                        |
+  | https://bash.im/      | Цитатник Рунета                                              |
+  | https://www.epam.com/ | EPAM \| Enterprise Software Development, Design & Consulting |
